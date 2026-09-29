@@ -143,7 +143,7 @@ research-paper-manager/
 
 ```bash
 # Clone 專案至本機
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/Joeysssss/research-paper-manager.git
 cd research-paper-manager
 
 # 安裝後端相依套件
