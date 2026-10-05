@@ -12,6 +12,57 @@
 
 ---
 
+## 🌐 線上公開體驗 (Live Demo)
+
+目前系統已透過 Cloudflare Tunnel 建立即時公開體驗網址，無需安裝即可在任何手機或電腦瀏覽器直接使用：
+
+👉 **公開展示網址**: [https://mud-answered-wisdom-indication.trycloudflare.com](https://mud-answered-wisdom-indication.trycloudflare.com)
+
+- **展示帳號**: `demo@example.com`
+- **展示密碼**: `demo123`
+*(登入頁面亦可點擊「點擊自動填入展示帳號」按鈕一鍵登入)*
+
+---
+
+## ☁️ 雲端部署教學 (如何部署並取得專屬永久網址)
+
+本專案已完成「全端單一服務 (Full-stack Monolith)」架構優化，Express 後端可同時託管 React 前端靜態頁面與 RESTful API，只需一個 Port 即可完成全站運作。
+
+### 方案 A：Render.com (推薦！免費、零配置、連接 GitHub 自動部署)
+
+1. 前往 [Render.com](https://render.com/) 並使用您的 GitHub 帳號登入。
+2. 點擊右上角 **New +** ➜ 選擇 **Web Service**。
+3. 在 GitHub 列表中選擇 **`Joeysssss/research-paper-manager`**。
+4. 設定基本參數（若使用專案內建的 `render.yaml` 則會自動帶入）：
+   - **Name**: `research-paper-manager`
+   - **Environment**: `Node`
+   - **Plan**: `Free`
+   - **Build Command**: `npm run build`
+   - **Start Command**: `npm start`
+5. 點擊 **Create Web Service**。
+6. Render 將自動安裝前後端依賴、編譯 React 生產版本並啟動伺服器。部署完成後，您即可獲得一個永久公開的 HTTPS 網址（例如 `https://research-paper-manager.onrender.com`）！
+
+### 方案 B：Railway / Fly.io / Koyeb (Docker 容器化部署)
+
+專案根目錄已附帶生產級 `Dockerfile`：
+1. 在 [Railway.app](https://railway.app/) 選擇 **Deploy from GitHub repo** ➜ 選擇本專案。
+2. Railway 會自動偵測 `Dockerfile` 並開始建置。
+3. 產生公開 Domain 即可分享給任何人使用！
+
+### 方案 C：本機即時建立公開網址 (Cloudflare Tunnel)
+
+若您正在本機開發，想即時傳送公開網址給他人預覽：
+```bash
+# 啟動整合伺服器 (:5000)
+npm start
+
+# 另開終端機建立 Cloudflare 穿透通道
+cloudflared tunnel --url http://localhost:5000
+```
+終端機輸出中的 `https://*.trycloudflare.com` 即可直接公開分享！
+
+---
+
 ## 🌟 核心特色 (Core Features)
 
 1. **🔐 身分認證與資料嚴密隔離 (Authentication & Data Isolation)**

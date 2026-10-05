@@ -1,5 +1,4 @@
-// End-to-End Integration Verification Script
-const baseUrl = 'http://127.0.0.1:5173/api';
+const baseUrl = process.env.BASE_URL || 'http://localhost:5000/api';
 
 async function runE2ETests() {
   console.log('====================================================');
